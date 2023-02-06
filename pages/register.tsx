@@ -22,7 +22,7 @@ const Register = () => {
     const signup =async (e:any)=> {
         e.preventDefault();
     try {
-        const res = await axios.post('https://linkedin-beige.vercel.app/signup', newUser)
+        const res = await axios.post('https://linkedin-beige.vercel.app/api/signup', newUser)
         router.push('/');
     } catch (err:any) {
         console.log("El mas error")
