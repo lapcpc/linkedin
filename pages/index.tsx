@@ -39,7 +39,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const   login =async(e:any)=>{
     e.preventDefault();
     try {
-        const res = await axios.post('http://localhost:3000/api/login', user )
+        const res = await axios.post('https://linkedin-beige.vercel.app/api/login', user )
         console.log(res.data.token)
         localStorage.setItem('token', res.data.token);
          router.push('/home')

@@ -50,7 +50,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const   data =async()=>{
     //e.preventDefault();
     try {
-        const res = await axios.get('http://localhost:3000/api/user', { headers: { token: localStorage.getItem('token')}})
+        const res = await axios.get('https://linkedin-beige.vercel.app/api/user', { headers: { token: localStorage.getItem('token')}})
         console.log(res.data)
         setUser(res.data.user)
         
