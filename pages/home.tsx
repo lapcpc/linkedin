@@ -40,7 +40,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   })
   useEffect(() => {
     if (localStorage.getItem('token') === null) {
-        router.push('/login');
+        router.push('/');
         data()
       }
       data()

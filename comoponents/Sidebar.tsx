@@ -14,7 +14,7 @@ function Sidebar({user}:Props) {
         </div>
     )
   return (
-    <div className='mx-5 sm:mx-0 sm:inline sticky rounded-lg text-center h-fit top-20' style={{flex:0.15}}>
+    <div className='mx-5 sm:mx-0 sm:inline sm:sticky rounded-lg text-center h-fit top-20' style={{flex:0.15}}>
         <div className='flex bg-white flex-col items-center border border-gray-200 border-b-0 rounded-tr-lg rounded-tl-lg  pb-3'>{/* Top*/}
             <img className=' rounded-tl-lg rounded-tr-lg object-cover  w-full h-14 -mb-5' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfb2w45v8H6HlDjS3jZmMp8XELf4LfsOTojw&usqp=CAU" />
             <Avatar className='mb-3' />

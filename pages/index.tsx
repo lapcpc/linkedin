@@ -44,7 +44,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         localStorage.setItem('token', res.data.token);
          router.push('/home')
     } catch (err:any) {
-        console.log(err.response.status);
+        console.log(err);
     }
     
     
