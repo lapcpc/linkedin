@@ -3,7 +3,7 @@ import { User } from "../../models/User";
 
 import { dbConnect } from '../../db'
 dbConnect()
-export default async function handles(req:NextApiRequest, res:NextApiResponse) {
+export default async function handler(req:NextApiRequest, res:NextApiResponse) {
     if (req.method == 'POST'){
         try {
             const newUser= new User({
@@ -12,7 +12,7 @@ export default async function handles(req:NextApiRequest, res:NextApiResponse) {
                 username: req.body.name,
                 password: req.body.password,
             })
-            await newUser.save()
+            const user =  await newUser.save()
             res.status(200).json({
                 title: 'signup succes'
             })
