@@ -25,6 +25,7 @@ const Register = () => {
         const res = await axios.post('https://linkedin-beige.vercel.app/signup', newUser)
         router.push('/');
     } catch (err:any) {
+        console.log("El mas error")
         console.log(err.response.status);
     }
        
