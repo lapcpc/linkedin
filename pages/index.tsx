@@ -6,6 +6,7 @@ import Link from 'next/link'
 import axios from 'axios'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import Error from '../comoponents/Error'
 
 type Post = {
   name: string
@@ -28,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
    */
   const router =useRouter()
-  
+  const [error, setError] = useState(false)
   const [user, setUser] = useState({
     email:"",
     password:""
@@ -45,6 +46,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
          router.push('/home')
     } catch (err:any) {
         console.log(err);
+        setError(true)
     }
     
     
@@ -60,7 +62,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       <div className=' block'>
         <img src='https://1000marcas.net/wp-content/uploads/2020/01/Logo-Linkedin.png' className=' w-28 ml-14 mt-2.5' />
       </div>
-
+    <Error value={error} action={()=>setError(false)} />
     <div className="flex flex-col mx-auto w-10/12 sm:w-7/12 md:w-5/12 lg:w-3/12  p-5 shadow-xl shadow-gray-600/20 rounded-lg" >
      <form className='flex flex-col space-y-6 w-11/12 mx-auto'>
        <div className='space-y-1'>

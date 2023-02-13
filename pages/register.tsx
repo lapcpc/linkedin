@@ -7,10 +7,12 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { format } from 'path'
 import Link from 'next/link'
+import Error from '../comoponents/Error'
 
 
 const Register = () => {
     const router  = useRouter()
+    const [error, setError] = useState(true)
     const  [newUser, setNewUser] = useState({
         name: "",
         email: "",
@@ -26,7 +28,7 @@ const Register = () => {
         router.push('/');
     } catch (err:any) {
         console.log("El mas error")
-        console.log(err.response.status);
+        setError(true)
     }
        
          
@@ -40,7 +42,9 @@ const Register = () => {
       <div className='w-fit mx-auto'>
         <h1 className='w-fit text-3xl'>Saca el máximo partido a tu vida profesional</h1>
       </div>
-
+      
+    
+      <Error value={error} action={()=>setError(false)} />
     <div className="flex mt-10 flex-col mx-auto w-10/12 sm:w-7/12 md:w-5/12 lg:w-3/12  p-5 shadow-xl shadow-gray-600/20 rounded-lg" >
     
      <form className='flex flex-col space-y-3 w-11/12 mx-auto'>
@@ -50,11 +54,11 @@ const Register = () => {
       </div>
       <div className='flex flex-col'>
       <label className='text-sm font-light py-1'>Email</label>
-       <input className='rounded-md border p-1 border-gray-500' name='email' value={newUser.email} onChange={handleChange} placeholder=""/>
+       <input type="email" className='rounded-md border p-1 border-gray-500' name='email' value={newUser.email} onChange={handleChange} placeholder=""/>
       </div>
       <div className='flex flex-col'>
       <label className='text-sm font-light py-1'>Password</label>
-       <input className='rounded-md border p-1 border-gray-500' name='password' value={newUser.password} onChange={handleChange} placeholder=""/>
+       <input type={'password'} className='rounded-md border p-1 border-gray-500' name='password' value={newUser.password} onChange={handleChange} placeholder=""/>
       </div>
        
        
